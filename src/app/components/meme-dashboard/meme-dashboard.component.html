@@ -1,0 +1,104 @@
+  
+  
+  
+  <!-- Sidebar navigation -->
+  <div class="container-fluid">
+    <div class="row">
+  
+      <nav class="col-md-2 d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active">
+                <i class="fas fa-user"></i>User Profile
+              </a>
+            </li>
+            <!-- Calling SignOut() Api from AuthService -->
+            <li class="nav-item">
+              <a class="nav-link" (click)="authService.SignOut()">
+                <i class="fas fa-sign-out-alt"></i>Log out
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  
+      <!-- Main content -->
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="app">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="card drop-shadow">
+                              <div class="card-body">
+                                  <form>
+                                      <div class="form-group">
+                                        <label for="">Select an Image</label>
+                                        <input type="file" class="form-control" accept="image/*" (change)='preview($event)'>
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="">Top Text</label>
+                                        <input type="text" class="form-control" name="topText" [(ngModel)] = 'topText' (keyup)='drawText()'>
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="">Bottom Text</label>
+                                        <input type="text" class="form-control" name="bottomText" [(ngModel)] = 'bottomText' (keyup)='drawText()'>
+                                      </div>
+                                      <select id="input-font" class="input" (change)='textFontStyle($event)'> 
+                                        <option value="Comic Sans" selected="selected">Comic Sans</option>
+                                        <option value="Times New Roman">Times New Roman</option> 
+                                        <option value="Arial">Arial</option> 
+                                        <option value="fantasy">Fantasy</option> 
+                                        <option value="cursive">cursive</option> 
+                                      </select>
+                                      <select id="input-font" class="input" (change)='textFontSize($event)'> 
+                                        <option value="20px" selected="selected">20px</option>
+                                        <option value="30px">30px</option> 
+                                        <option value="40px">40px</option>
+                                        <option value="50px">50px</option> 
+                                        <option value="60px">60px</option> 
+                                      </select>
+                                      <select id="input-font" class="input" (change)='textFontWeight($event)'> 
+                                        <option value="normal" selected="selected">Normal</option>
+                                        <option value="bold">Bold</option> 
+                                        <option value="bolder">Bolder</option>
+                                        <option value="100">100</option> 
+                                        <option value="200">200</option> 
+                                      </select> 
+
+                                      <div class="row" id="selectcolor">
+                                          <div class="col-md-6">
+                                              <div class="form-group">
+                                                <label for="">Text Color</label>
+                                                <color-chrome (onChangeComplete)='canvasTextColor($event)'></color-chrome>
+                                              </div>
+                                          </div>
+
+                                          <div class="col-md-6">
+                                            <div class="form-group">
+                                              <label for="">Background Color</label>
+                                              <color-chrome (onChangeComplete)='canvasBgColor($event)'></color-chrome>
+                                            </div>
+                                        </div>
+                                      </div>
+                                      
+                                      <button class="btn btn-outline-primary btn-block mt-3">Post Meme</button>
+                                      <button class="btn btn-outline-primary btn-block mt-3" (click)='downloadImg()'>Download</button>
+                                  </form>
+
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <canvas class="drop-shadow" #memeCanvas width="700" height="800"
+                          style="background-color: #f9f9fd;"></canvas>
+
+                    </div>
+                  </div>
+              </div>
+          </div>  
+        </main>
+  
+    </div>
+  </div>
+ 

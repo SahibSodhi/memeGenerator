@@ -1,0 +1,4 @@
+<div *ngFor="let meme of memes | async">
+    <h2 routerLink="{{meme.id}}">{{meme.tag}}</h2>
+    <p>{{meme.published}}</p>
+</div>

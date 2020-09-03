@@ -1,0 +1,4 @@
+<div *ngIf="meme">
+    <h3>{{meme.tag}}</h3>
+    <p>posted by {{meme.authorId}} &bull; {{meme.published.seconds * 1000 | date:'MM-dd-yyyy'}}</p>  
+</div>

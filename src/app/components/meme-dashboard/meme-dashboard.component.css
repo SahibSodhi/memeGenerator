@@ -13,3 +13,15 @@ ul#horizontal-list li {
 ul#horizontal-list a{
     color:white;
 }
+
+.card{
+    border:none;
+}
+
+.app{
+    margin-top: 30px;
+}
+
+#selectcolor{
+    margin-top: 20px;
+}
